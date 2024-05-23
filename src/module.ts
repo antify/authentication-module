@@ -8,9 +8,7 @@ import {
 import {join, relative} from 'pathe';
 import {
 	useValidator,
-	isTypeOfRule,
-	notBlankRule,
-	Types
+	notBlankRule
 } from '@antify/validate';
 
 // TODO:: give option to write a custom encrypter
