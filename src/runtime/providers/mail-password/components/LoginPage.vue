@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import {
 	ref,
-	watch,
 	useUi,
 	reactive,
 	useFetch,
 	useRoute,
 	showError,
-	useNuxtApp,
 	useUiClient,
-	onBeforeUnmount
+	onBeforeUnmount,
+	onMounted
 } from '#imports';
 import {type LocationAsRelativeRaw} from '#vue-router';
 import {validator as _validator, type Input} from '../glue/login.post';
 
-const props = defineProps<{
+defineProps<{
 	forgotPasswordRoute: LocationAsRelativeRaw
 
 	/**
@@ -25,7 +24,6 @@ const props = defineProps<{
 }>();
 const emit = defineEmits(['login']);
 const route = useRoute();
-const uiClient = useUiClient();
 const formData = ref<Input>({
 	email: '',
 	password: '',
@@ -35,7 +33,6 @@ const formData = ref<Input>({
 const validator = reactive(_validator);
 const loginError = ref<string | null>(null);
 const {
-	error,
 	execute,
 	status,
 } = useFetch('/api/authentication-module/providers/mail-password/login', {
@@ -60,8 +57,6 @@ const {
 	}
 });
 
-watch(error, (e) => uiClient.handler.handleResponseError(e));
-
 async function onLogin() {
 	loginError.value = null;
 
@@ -74,8 +69,9 @@ async function onLogin() {
 	await execute();
 }
 
+onMounted(() => validator.reset());
 onBeforeUnmount(() => {
-	validator.errorMap = {};
+	validator.reset();
 });
 </script>
 
@@ -98,56 +94,60 @@ onBeforeUnmount(() => {
         </h2>
       </slot>
 
-      <form class="mt-8 space-y-5 bg-neutral-50 p-10 rounded-md shadow-md">
-        <AntAlert
-          v-if="loginError"
-          :expanded="true"
-          :color-type="useUi().ColorType.danger"
-          :icon="false"
-          :dismiss-btn="false"
-        >
-          {{ loginError }}
-        </AntAlert>
-
-        <AntTextInput
-          v-model="formData.email"
-          label="E-Mail"
-          name="email"
-          type="email"
-          :disabled="status === 'pending'"
-          :errors="validator.fieldMap.email.validator.getErrors()"
-          @validate="val => validator.fieldMap.email.validator.validate(val, formData.email, 'client')"
-        />
-
-        <!--					TODO:: Replace with AntPasswordInput-->
-        <AntTextInput
-          v-model="formData.password"
-          label="Password"
-          name="password"
-          type="password"
-          :disabled="status === 'pending'"
-          :errors="validator.fieldMap.password.validator.getErrors()"
-          @validate="val => validator.fieldMap.password.validator.validate(val, formData.password, 'client')"
-        />
-
-        <div class="text-right">
-          <NuxtLink
-            class="text-sm text-neutral-50-font hover:text-black transition-colors"
-            :to="forgotPasswordRoute"
+      <form class="mt-8 bg-neutral-50 p-10 rounded-md shadow-md">
+        <AntFormGroup>
+          <AntAlert
+            v-if="loginError"
+            :expanded="true"
+            :color-type="useUi().ColorType.danger"
+            :icon="false"
+            :dismiss-btn="false"
           >
-            Forgot password?
-          </NuxtLink>
-        </div>
+            {{ loginError }}
+          </AntAlert>
 
-        <AntButton
-          :expanded="true"
-          :filled="true"
-          :color-type="useUi().ColorType.primary"
-          :disabled="status === 'pending'"
-          @click="() => onLogin()"
-        >
-          Login
-        </AntButton>
+
+          <AntTextInput
+            v-model="formData.email"
+            label="E-Mail"
+            name="email"
+            type="email"
+            :disabled="status === 'pending'"
+            :errors="validator.fieldMap.email.validator.getErrors()"
+            @validate="val => validator.fieldMap.email.validator.validate(val, formData.email, 'client')"
+          />
+
+          <!--					TODO:: Replace with AntPasswordInput-->
+          <AntTextInput
+            v-model="formData.password"
+            label="Password"
+            name="password"
+            type="password"
+            :disabled="status === 'pending'"
+            :errors="validator.fieldMap.password.validator.getErrors()"
+            @validate="val => validator.fieldMap.password.validator.validate(val, formData.password, 'client')"
+          />
+
+
+          <div class="text-right">
+            <NuxtLink
+              class="text-sm text-neutral-50-font hover:text-black transition-colors"
+              :to="forgotPasswordRoute"
+            >
+              Forgot password?
+            </NuxtLink>
+          </div>
+
+          <AntButton
+            :expanded="true"
+            :filled="true"
+            :color-type="useUi().ColorType.primary"
+            :disabled="status === 'pending'"
+            @click="() => onLogin()"
+          >
+            Login
+          </AntButton>
+        </AntFormGroup>
       </form>
     </div>
   </div>
