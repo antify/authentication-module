@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/antify/authentication-module/compare/v1.0.3...v1.0.4) (2024-06-18)
+
+
+### Bug Fixes
+
+* **mailPassword:** Fix showing input errors instantly ([bf15943](https://github.com/antify/authentication-module/commit/bf159432750751804237ccf208d4c88930117f8a))
+
 ### [1.0.3](https://github.com/antify/authentication-module/compare/v1.0.2...v1.0.3) (2024-06-18)
 
 ### [1.0.2](https://github.com/antify/authentication-module/compare/v1.0.1...v1.0.2) (2024-06-18)
