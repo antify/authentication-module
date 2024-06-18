@@ -27,8 +27,8 @@ const emit = defineEmits(['login']);
 const route = useRoute();
 const uiClient = useUiClient();
 const formData = ref<Input>({
-	email: 'admin@admin.de',
-	password: 'admin',
+	email: '',
+	password: '',
 	// TODO:: rename inviteToken to something cryptic short in query
 	inviteToken: route.query?.inviteToken as string,
 });
