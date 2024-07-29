@@ -4,7 +4,7 @@ Easy way to add authentication to your nuxt app.
 
 ## Providers
 
-There are different types of authentication providers. Each provider has its own configuration and methods, 
+There are different types of authentication providers. Each provider has its own configuration and methods,
 and ships with its own set of dependencies.
 
 - [E-Mail and password](src/runtime/providers/mail-password/README.md)

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { validator as registerValidator, Input } from '../glue/register.post';
-import { LocationAsRelativeRaw, useRoute } from 'vue-router';
+import {validator as registerValidator, Input} from '../glue/register.post';
+import {LocationAsRelativeRaw, useRoute} from 'vue-router';
 
 const props = defineProps<{
   context: string;
@@ -15,12 +15,12 @@ const formData = reactive<Input>({
 });
 const repeatPassword = ref('a@a.de');
 const validator = reactive(registerValidator);
-const { data, pending, error, execute } = useFetch(
+const {data, pending, error, execute} = useFetch(
   '/api/auth-module/register',
   {
     method: 'POST',
     immediate: false,
-    onRequest({ options }) {
+    onRequest({options}) {
       options.body = formData;
     },
   }
@@ -29,7 +29,7 @@ const { data, pending, error, execute } = useFetch(
 pending.value = false;
 
 async function submit() {
-  validator.validate({ ...formData, repeatPassword: repeatPassword.value }, 1);
+  validator.validate({...formData, repeatPassword: repeatPassword.value}, 1);
 
   if (validator.hasErrors()) {
     return;
@@ -38,7 +38,7 @@ async function submit() {
   await execute();
 
   if (error.value) {
-    throw createError({ ...error.value.data, fatal: true });
+    throw createError({...error.value.data, fatal: true});
   }
 
   if (data.value?.default) {

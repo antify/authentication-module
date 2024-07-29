@@ -1,10 +1,10 @@
-import { readBody } from '#build/types/nitro-imports'
-import { getDatabaseClient, SingleConnectionClient } from '@antify/database'
-import { Input, validator, Response } from '~/src/runtime/providers/mail-password/glue/forgot-password.post'
-import { extendSchemas } from '../datasources/schema.extensions'
-import { Accounts } from '../datasources/schemas/accounts'
-import { MailTemplateId } from '../mailTemplates'
-import { useMailer } from '#mailerModule'
+import {readBody} from '#build/types/nitro-imports'
+import {getDatabaseClient, SingleConnectionClient} from '@antify/database'
+import {Input, validator, Response} from '~/src/runtime/providers/mail-password/glue/forgot-password.post'
+import {extendSchemas} from '../datasources/schema.extensions'
+import {Accounts} from '../datasources/schemas/accounts'
+import {MailTemplateId} from '../mailTemplates'
+import {useMailer} from '#mailerModule'
 
 export default defineEventHandler<Response>(async (event) => {
   const requestData = await readBody<Input>(event)
@@ -17,12 +17,12 @@ export default defineEventHandler<Response>(async (event) => {
     )
   }
 
-  const { mainProviderId } = useRuntimeConfig().authModule
+  const {mainProviderId} = useRuntimeConfig().authModule
   const client = await (getDatabaseClient(mainProviderId) as SingleConnectionClient).connect()
   extendSchemas(client)
 
   const UserModel = client.getModel<Accounts>('users')
-  const user = await UserModel.findOne({ email: requestData.email })
+  const user = await UserModel.findOne({email: requestData.email})
 
   if (!user) {
     return {

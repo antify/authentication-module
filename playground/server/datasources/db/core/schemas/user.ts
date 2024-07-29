@@ -4,17 +4,17 @@ import {authenticationSchemaDefinition} from '../../../../../../src/runtime/serv
 import {defineSchema} from '@antify/database';
 
 export interface User {
-	email: string;
-	authentications: Authentication[];
+  email: string;
+  authentications: Authentication[];
 }
 
 export default defineSchema(async (client) => {
-	client.getSchema('users').add({
-		email: {
-			type: String,
-			required: true,
-			unique: true
-		},
-		authentications: [authenticationSchemaDefinition]
-	});
-})
+  client.getSchema('users').add({
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    authentications: [authenticationSchemaDefinition]
+  });
+});

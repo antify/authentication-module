@@ -4,40 +4,40 @@ import {validator as forgotPasswordValidator} from '../glue/forgot-password.post
 import {type LocationAsRelativeRaw} from 'vue-router';
 
 const props = defineProps<{
-	context: string;
-	tenantId?: string;
-	backRoute: LocationAsRelativeRaw;
+  context: string;
+  tenantId?: string;
+  backRoute: LocationAsRelativeRaw;
 }>();
 const validator = reactive(forgotPasswordValidator);
 const formData = reactive<{ email: string }>({email: ''});
 
 const {data, status, error, execute} = useFetch(
-	'/api/auth-module/forgot-password',
-	{
-		method: 'POST',
-		immediate: false,
-		onRequest({options}) {
-			options.body = formData;
-		},
-	}
+  '/api/auth-module/forgot-password',
+  {
+    method: 'POST',
+    immediate: false,
+    onRequest({options}) {
+      options.body = formData;
+    },
+  }
 );
 
 const submit = async () => {
-	validator.validateProperty('email', formData.email, 1);
+  validator.validateProperty('email', formData.email, 1);
 
-	if (validator.hasErrors()) {
-		return;
-	}
+  if (validator.hasErrors()) {
+    return;
+  }
 
-	await execute();
+  await execute();
 
-	if (error.value) {
-		throw createError({...error.value.data, fatal: true});
-	}
+  if (error.value) {
+    throw createError({...error.value.data, fatal: true});
+  }
 
-	if (data.value?.success) {
-		formData.email = '';
-	}
+  if (data.value?.success) {
+    formData.email = '';
+  }
 };
 </script>
 

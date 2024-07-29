@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { validator as ResetPasswordValidator } from '../glue/reset-password.post';
-import { LocationAsRelativeRaw, useRoute, useRouter } from 'vue-router';
+import {validator as ResetPasswordValidator} from '../glue/reset-password.post';
+import {LocationAsRelativeRaw, useRoute, useRouter} from 'vue-router';
 
 const props = defineProps<{
   context: string;
@@ -16,12 +16,12 @@ const formData = reactive<{
   repeatPassword: '',
 });
 
-const { pending, error, execute } = useFetch(
+const {pending, error, execute} = useFetch(
   '/api/auth-module/reset-password',
   {
     method: 'POST',
     immediate: false,
-    onRequest({ options }) {
+    onRequest({options}) {
       options.body = {
         password: formData.password,
         code: useRoute().query.code,
@@ -43,7 +43,7 @@ const submit = async () => {
   await execute();
 
   if (error.value) {
-    throw createError({ ...error.value.data, fatal: true });
+    throw createError({...error.value.data, fatal: true});
   }
 
   // Return to login
@@ -115,7 +115,7 @@ const submit = async () => {
 
       <div class="w-full flex justify-between">
         <AntButton data-cy="cancel">
-          <NuxtLink :to="{ name: 'login' }"> Zurück </NuxtLink>
+          <NuxtLink :to="{ name: 'login' }"> Zurück</NuxtLink>
         </AntButton>
 
         <AntButton

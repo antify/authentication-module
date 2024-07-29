@@ -1,6 +1,6 @@
 export enum Provider {
-	mailPassword = 'mailPassword',
-	pin = 'pin',
+  mailPassword = 'mailPassword',
+  pin = 'pin',
 }
 
 

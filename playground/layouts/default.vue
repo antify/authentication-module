@@ -7,23 +7,23 @@ const navbarItems = [
     icon: faHome,
     to: '/'
   },
-	{
-		label: 'E-Mail and Password',
-		icon: faShieldHalved,
-		to: '/providers/mail-password/login',
-		children: [
-			{
-				label: 'Login',
-				to: '/providers/mail-password/login'
-			}
-		]
-	},
-	{
-		label: 'Pin',
-		icon: faShieldHalved,
-		to: '/providers/pin/login'
-	},
-]
+  {
+    label: 'E-Mail and Password',
+    icon: faShieldHalved,
+    to: '/providers/mail-password/login',
+    children: [
+      {
+        label: 'Login',
+        to: '/providers/mail-password/login'
+      }
+    ]
+  },
+  {
+    label: 'Pin',
+    icon: faShieldHalved,
+    to: '/providers/pin/login'
+  },
+];
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-import { MailTemplateConfiguration } from '#mailerModule';
+import {MailTemplateConfiguration} from '#mailerModule';
 
 export enum MailTemplateId {
   FORGOT_PASSWORD = 'FORGOT_PASSWORD'

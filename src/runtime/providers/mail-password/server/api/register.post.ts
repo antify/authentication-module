@@ -1,9 +1,9 @@
-import { getDatabaseClientFromRequest } from '@antify/kit'
-import { readBody } from '#build/types/nitro-imports'
-import { handleCreateToken, hashRawPassword } from '../utils/tokenUtil'
-import { Response, Input, validator } from '~/src/runtime/providers/mail-password/glue/register.post'
-import { extendSchemas } from '../datasources/schema.extensions'
-import { Accounts } from '../../../../src/runtime/server/datasources/schemas/accounts'
+import {getDatabaseClientFromRequest} from '@antify/kit';
+import {readBody} from '#build/types/nitro-imports';
+import {handleCreateToken, hashRawPassword} from '../utils/tokenUtil';
+import {Response, Input, validator} from '~/src/runtime/providers/mail-password/glue/register.post';
+import {extendSchemas} from '../datasources/schema.extensions';
+import {Accounts} from '../../../../src/runtime/server/datasources/schemas/accounts';
 
 // TODO:: rename to magic link. It is not a register logic
 export default defineEventHandler<Response>(async (event) => {
@@ -49,7 +49,7 @@ export default defineEventHandler<Response>(async (event) => {
   //     pending: true,
   //   },
   // ]);
-  return {}
+  return {};
   // return {
   //   default: {
   //     token: await handleCreateToken(
@@ -59,4 +59,4 @@ export default defineEventHandler<Response>(async (event) => {
   //     )
   //   }
   // }
-})
+});

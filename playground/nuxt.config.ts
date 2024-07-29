@@ -6,11 +6,11 @@ export default defineNuxtConfig({
   ],
   ssr: false,
   devtools: {enabled: true},
-	imports: {
-		autoImport: false
-	},
+  imports: {
+    autoImport: false
+  },
   authenticationModule: {
-		passwordSalt: '#a!SaveSalt123',
-		dataAdapterPath: './server/datasources/db/core/data-adapter',
-	}
+    passwordSalt: '#a!SaveSalt123',
+    dataAdapterPath: './server/datasources/db/core/data-adapter',
+  }
 });
