@@ -1,7 +1,17 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [2.0.0](https://github.com/antify/authentication-module/compare/v1.0.4...v2.0.0) (2024-07-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade @antify/ui-module peerdependency
+
+### Features
+
+* upgrade @antify/ui-module peerdependency ([38e49c9](https://github.com/antify/authentication-module/commit/38e49c91cec699e233217bb91f92e4c1d0c1c159))
 
 ### [1.0.4](https://github.com/antify/authentication-module/compare/v1.0.3...v1.0.4) (2024-06-18)
 
