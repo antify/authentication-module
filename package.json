@@ -34,16 +34,16 @@
     "@antify/database-cli": "^1.0.1",
     "@antify/database-module": "^1.1.0",
     "@faker-js/faker": "^8.4.1",
-    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxt/eslint-config": "^0.4.0",
     "@nuxt/module-builder": "^0.5.5",
     "@nuxt/schema": "^3.10.3",
-    "eslint": "^8.57.0",
+    "eslint": "8.57.0",
     "eslint-plugin-storybook": "^0.8.0",
     "nuxt": "^3.10.3",
     "pathe": "^1.1.2",
     "standard-version": "^9.5.0"
   },
   "peerDependencies": {
-    "@antify/ui-module": "^1.6.0"
+    "@antify/ui-module": "1.7.2"
   }
 }
