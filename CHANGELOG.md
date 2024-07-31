@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/antify/authentication-module/compare/v2.0.0...v2.1.0) (2024-07-31)
+
+
+### Features
+
+* upgrade antify/ui-module ([c0d0a2d](https://github.com/antify/authentication-module/commit/c0d0a2db59b7be02c7c31ac856b174ccab06e2f5))
+
+
+### Bug Fixes
+
+* Submit on click enter ([b5171a8](https://github.com/antify/authentication-module/commit/b5171a853c1f202df75994d0aaad8def25ede0f2))
+
 ## [2.0.0](https://github.com/antify/authentication-module/compare/v1.0.4...v2.0.0) (2024-07-29)
 
 
