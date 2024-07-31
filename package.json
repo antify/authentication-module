@@ -44,6 +44,6 @@
     "standard-version": "^9.5.0"
   },
   "peerDependencies": {
-    "@antify/ui-module": "1.7.2"
+    "@antify/ui-module": "1.7.3"
   }
 }
