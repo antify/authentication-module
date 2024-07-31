@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@antify/ui-module':
-    specifier: 1.7.2
-    version: 1.7.2(@fortawesome/fontawesome-svg-core@6.5.1)(@tiptap/core@2.2.4)(rollup@3.29.4)(typescript@5.4.2)
+    specifier: 1.7.3
+    version: 1.7.3(@fortawesome/fontawesome-svg-core@6.5.1)(@tiptap/core@2.2.4)(rollup@3.29.4)(typescript@5.4.2)
   '@antify/validate':
     specifier: 1.14.0
     version: 1.14.0
@@ -130,8 +130,8 @@ packages:
       - uWebSockets.js
     dev: true
 
-  /@antify/ui-module@1.7.2(@fortawesome/fontawesome-svg-core@6.5.1)(@tiptap/core@2.2.4)(rollup@3.29.4)(typescript@5.4.2):
-    resolution: {integrity: sha512-75uztbn+ZBKsNuObUPrLf6Z6F1665K7O/cKah7D4JLS6iv+VBXiFacvBo3qOvt2C7tzRy2fku9kU9zombiOu8w==}
+  /@antify/ui-module@1.7.3(@fortawesome/fontawesome-svg-core@6.5.1)(@tiptap/core@2.2.4)(rollup@3.29.4)(typescript@5.4.2):
+    resolution: {integrity: sha512-7ebLDxzOr8HEtIwnTrZ27tBKhlgVGGH6EI2h4DH3Yy95rVBxqVuXhlVpKqteRt8OGpoPjOBMB2oex54EjX4slw==}
     dependencies:
       '@antify/validate': 1.14.0
       '@fortawesome/free-regular-svg-icons': 6.5.1
