@@ -137,6 +137,7 @@ onBeforeUnmount(() => {
           <AntButton
             :expanded="true"
             :filled="true"
+            :submit="true"
             :state="State.primary"
             :disabled="status === 'pending'"
             @click="() => onLogin()"
