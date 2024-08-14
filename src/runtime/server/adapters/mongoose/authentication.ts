@@ -13,4 +13,4 @@ export const authenticationSchemaDefinition: SchemaDefinition = {
     type: String,
     required: true
   },
-}
+};
