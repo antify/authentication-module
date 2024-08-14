@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/antify/authentication-module/compare/v2.1.0...v2.2.0) (2024-08-14)
+
+
+### Features
+
+* Make module usable as package too ([8f76195](https://github.com/antify/authentication-module/commit/8f76195f331fd4f9908d7c901a2a47d1e52fca16))
+
 ## [2.1.0](https://github.com/antify/authentication-module/compare/v2.0.0...v2.1.0) (2024-07-31)
 
 
