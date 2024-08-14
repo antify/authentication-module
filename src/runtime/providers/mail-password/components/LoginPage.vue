@@ -10,7 +10,6 @@ import {
 } from '#imports';
 import {type LocationAsRelativeRaw} from '#vue-router';
 import {validator as _validator, type Input} from '../glue/login.post';
-import {State} from '#ui-module';
 
 defineProps<{
   forgotPasswordRoute: LocationAsRelativeRaw
@@ -69,9 +68,7 @@ async function onLogin() {
 }
 
 onMounted(() => validator.reset());
-onBeforeUnmount(() => {
-  validator.reset();
-});
+onBeforeUnmount(() => validator.reset());
 </script>
 
 <template>
@@ -88,23 +85,25 @@ onBeforeUnmount(() => {
       </slot>
 
       <slot name="loginHeader">
-        <h2 class="text-2xl font-medium text-center text-for-white-bg-font">
+        <h2 class="text-2xl font-medium text-center text-white">
           Sign in to your account
         </h2>
       </slot>
 
-      <form class="mt-8 bg-neutral-50 p-10 rounded-md shadow-md">
+      <form
+        class="mt-8 bg-neutral-50 p-8 rounded-md shadow-md flex flex-col gap-8"
+        @submit.prevent="() => onLogin()"
+      >
         <AntFormGroup>
           <AntAlert
             v-if="loginError"
             :expanded="true"
-            :state="State.danger"
+            state="danger"
             :icon="false"
             :dismiss-btn="false"
           >
             {{ loginError }}
           </AntAlert>
-
 
           <AntTextInput
             v-model="formData.email"
@@ -112,7 +111,8 @@ onBeforeUnmount(() => {
             name="email"
             type="email"
             :disabled="status === 'pending'"
-            :errors="validator.fieldMap.email.validator.getErrors()"
+            :state="validator.fieldMap.email.validator.hasErrors() ? 'danger' : undefined"
+            :messages="validator.fieldMap.email.validator.getErrors()"
             @validate="val => validator.fieldMap.email.validator.validate(val, formData.email, 'client')"
           />
 
@@ -121,7 +121,8 @@ onBeforeUnmount(() => {
             label="Password"
             name="password"
             :disabled="status === 'pending'"
-            :errors="validator.fieldMap.password.validator.getErrors()"
+            :state="validator.fieldMap.password.validator.hasErrors() ? 'danger' : undefined"
+            :messages="validator.fieldMap.password.validator.getErrors()"
             @validate="val => validator.fieldMap.password.validator.validate(val, formData.password, 'client')"
           />
 
@@ -133,18 +134,17 @@ onBeforeUnmount(() => {
               Forgot password?
             </NuxtLink>
           </div>
-
-          <AntButton
-            :expanded="true"
-            :filled="true"
-            :submit="true"
-            :state="State.primary"
-            :disabled="status === 'pending'"
-            @click="() => onLogin()"
-          >
-            Login
-          </AntButton>
         </AntFormGroup>
+
+        <AntButton
+          :expanded="true"
+          :filled="true"
+          :submit="true"
+          state="primary"
+          :disabled="status === 'pending'"
+        >
+          Login
+        </AntButton>
       </form>
     </div>
   </div>
@@ -152,6 +152,20 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .login-bg {
-  background: radial-gradient(100% 100% at 50% 0%, #F1F5F9 37.5%, #7DD3FC 100%);
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>

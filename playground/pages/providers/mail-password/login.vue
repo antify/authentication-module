@@ -1,3 +1,6 @@
+<script lang="ts" setup>
+</script>
+
 <template>
   <AuthenticationModuleMailPasswordLoginPage
     :forgot-password-route="{ name: 'providers-mail-password-forgot-password' }"
