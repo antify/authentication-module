@@ -20,6 +20,7 @@
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
   "scripts": {
+    "build": "nuxt-module-build build",
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
@@ -31,7 +32,7 @@
   "dependencies": {
     "@antify/validate": "1.14.0",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@nuxt/kit": "^3.10.3"
+    "@nuxt/kit": "^3.15.4"
   },
   "devDependencies": {
     "@antify/database": "^1.2.0",
@@ -39,15 +40,15 @@
     "@antify/database-module": "^1.1.0",
     "@faker-js/faker": "^8.4.1",
     "@nuxt/eslint-config": "^0.4.0",
-    "@nuxt/module-builder": "^0.5.5",
+    "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^3.10.3",
     "eslint": "8.57.0",
     "eslint-plugin-storybook": "^0.8.0",
-    "nuxt": "^3.10.3",
+    "nuxt": "^3.12.4",
     "pathe": "^1.1.2",
     "standard-version": "^9.5.0"
   },
   "peerDependencies": {
-    "@antify/ui-module": "1.7.3"
+    "@antify/ui-module": "^2.3.0"
   }
 }
