@@ -16,5 +16,6 @@ export default defineBuildConfig({
     '#vue-router',
     'mongoose',
     'pathe',
-  ]
+  ],
+  failOnWarn: false,
 });
